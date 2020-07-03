@@ -1,0 +1,85 @@
+= WindowMode Neovim Plugin
+
+Allows you to have a separate window mode to create splits and resize them.
+It also allows you to move around your splits.
+
+== Installation
+
+Install:
+
+----
+Plug 'Iron-E/nvim-libmodal'
+Plug 'DavidGamba/nvim-window-mode'
+----
+
+Create a mapping for it or open it with `:WindowmodeEnter`
+
+----
+if !hasmapto('<Plug>WindowmodeEnter')
+	silent! nmap <unique> <Leader>w <Plug>WindowmodeEnter
+endif
+----
+
+Moving around window splits within the mode is very difficult unless you are using window highlights.
+For example:
+
+----
+hi MyNormalNC ctermbg='#32302f' guibg='#32302f'
+set winhighlight=NormalNC:MyNormalNC
+----
+
+Add other helpful mappings to move around without jumping into the Windowmode.
+
+----
+nmap <C-J> :wincmd j<CR>
+nmap <C-K> :wincmd k<CR>
+nmap <C-H> :wincmd h<CR>
+nmap <C-L> :wincmd l<CR>
+----
+
+== Keybindings
+
+|===
+|Key |Action |Description
+
+|s
+|`wincmd s`
+|Split
+
+|v
+|`wincmd v`
+|Vertical Split
+
+|q
+|`wincmd q`
+|Close window/split
+
+|r
+|`wincmd r`
+|Rotate
+
+|h
+|`wincmd h`
+|Move Left
+
+|l
+|`wincmd l`
+|Move Right
+
+|H
+|`wincmd <`
+|Resize
+
+|L
+|`wincmd >`
+|Resize
+
+|K
+|`wincmd +`
+|Resize
+
+|J
+|`wincmd -`
+|Resize
+
+|===
